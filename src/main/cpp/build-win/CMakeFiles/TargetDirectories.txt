@@ -1,3 +1,0 @@
-/mnt/hdd/jnihtest/src/main/cpp/build-win/CMakeFiles/mytest.dir
-/mnt/hdd/jnihtest/src/main/cpp/build-win/CMakeFiles/edit_cache.dir
-/mnt/hdd/jnihtest/src/main/cpp/build-win/CMakeFiles/rebuild_cache.dir

@@ -1,8 +1,29 @@
-.gradle
-.build/
+cat > .gitignore << 'EOF'
+# Gradle
+.gradle/
+build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-.kotlin
+
+# Kotlin
+.kotlin/
+
+# IDE
 .idea/
-!java
+*.iml
+*.iws
+*.ipr
+.vscode/
+
+# JDK for cross-compilation (downloaded locally, NOT committed)
+/java/
+
+# Native build artifacts
+src/main/cpp/build/
+src/main/cpp/build-win/
+build-native-output/
+native-cross-output/
+
+# OS
+.DS_Store
+Thumbs.db
+EOF
