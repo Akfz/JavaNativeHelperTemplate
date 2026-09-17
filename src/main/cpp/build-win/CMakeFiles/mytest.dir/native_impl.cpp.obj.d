@@ -1,0 +1,18 @@
+CMakeFiles/mytest.dir/native_impl.cpp.obj: \
+ /mnt/hdd/jnihtest/src/main/cpp/native_impl.cpp \
+ /mnt/hdd/jnihtest/java/winjava/include/jni.h \
+ /usr/x86_64-w64-mingw32/include/stdio.h \
+ /usr/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ /usr/x86_64-w64-mingw32/include/corecrt.h \
+ /usr/x86_64-w64-mingw32/include/_mingw.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_mac.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ /usr/x86_64-w64-mingw32/include/vadefs.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_off_t.h \
+ /usr/x86_64-w64-mingw32/include/swprintf.inl \
+ /usr/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+ /usr/lib/gcc/x86_64-w64-mingw32/16.2.0/include/stdarg.h \
+ /usr/x86_64-w64-mingw32/include/stdarg.h \
+ /usr/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ /mnt/hdd/jnihtest/java/winjava/include/win32/jni_md.h \
+ /mnt/hdd/jnihtest/src/main/cpp/../../../build/generated/jni-headers/v_akfz_NativeTest.h

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/mnt/hdd/jnihtest/src/main/cpp/build-win/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'io.github.Akfz.jnih' version '1.0.1'
+    id 'application'
+}
+
+application {
+    mainClass = 'v.akfz.Main'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'v.akfz.Main'
+    }
+}
+
+jni {
+    // JDKs for cross-compilation (headers only, NOT included in JAR).
+    // Used by `crossCompile` blocks to resolve jni.h / jni_md.h for target platforms.
+    // Layout convention:  java/<os>java/   (e.g. java/winjava, java/linuxjava)
+    jdks {
+        windows = file("java/winjava")
+    }
+
+    buildNative {
+        enabled = false //default true!!!!
+        workingDir = layout.projectDirectory.dir("src/main/cpp") //the path from which the command is called
+        executable = "sh" // which program to launch to execute the command.
+        args = ["-c", "cmake -S . -B build && cmake --build build"] //args
+        //and work like sh -c "cmake -S . -B build && cmake --build build"
+    }
+
+    crossCompile {
+        windows {
+            enabled = true
+            target = "windows" //platform
+            workingDir = layout.projectDirectory.dir("src/main/cpp") //other like in default buildNative
+            executable = "sh"
+            args = [
+                    "-c",
+                    "cmake -S . -B build-win -DCMAKE_TOOLCHAIN_FILE=mingw-toolchain.cmake && cmake --build build-win"
+            ]
+        }
+    }
+
+    //works on INSTALLED docker on os! (like padman and others)
+    dockerBuild {
+        enabled = true
+        imageName = "ubuntu:22.04"
+        setupCommand = "apt-get update && apt-get install -y build-essential cmake openjdk-17-jdk"
+        buildCommand = "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 && cmake -S . -B /tmp/build && cmake --build /tmp/build && cp /tmp/build/libmytest.so /output/"
+    }
+
+    packageNative {
+        run.libraries.from(layout.buildDirectory.file("native-docker-output/libmytest.so"))
+        jar.libraries.from(layout.buildDirectory.file("native-docker-output/libmytest.so"))
+
+        jar.platform.win.from(layout.projectDirectory.file("src/main/cpp/build-win/mytest.dll"))
+    }
+}

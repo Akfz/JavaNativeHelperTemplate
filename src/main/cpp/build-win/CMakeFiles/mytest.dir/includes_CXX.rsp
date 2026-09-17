@@ -1,0 +1,1 @@
+-I/mnt/hdd/jnihtest/java/winjava/include -I/mnt/hdd/jnihtest/java/winjava/include/win32 -I"/mnt/hdd/jnihtest/src/main/cpp/../../../build/generated/jni-headers"
